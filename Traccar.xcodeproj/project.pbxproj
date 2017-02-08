@@ -19,6 +19,26 @@
 		A6D112511E4B2C2000B38CC3 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112501E4B2C2000B38CC3 /* APIError.swift */; };
 		A6D112531E4B2C4E00B38CC3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112521E4B2C4E00B38CC3 /* APIClient.swift */; };
 		A6D112551E4B2C8000B38CC3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112541E4B2C8000B38CC3 /* Endpoint.swift */; };
+		A6D112581E4B2D8700B38CC3 /* AttributeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112571E4B2D8700B38CC3 /* AttributeAlias.swift */; };
+		A6D1125A1E4B2F2B00B38CC3 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112591E4B2F2B00B38CC3 /* Command.swift */; };
+		A6D1125C1E4B30A400B38CC3 /* CommandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1125B1E4B30A400B38CC3 /* CommandType.swift */; };
+		A6D1125E1E4B311700B38CC3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1125D1E4B311700B38CC3 /* Device.swift */; };
+		A6D112601E4B330F00B38CC3 /* DeviceGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1125F1E4B330F00B38CC3 /* DeviceGeofence.swift */; };
+		A6D112621E4B33A500B38CC3 /* DevicePermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112611E4B33A500B38CC3 /* DevicePermission.swift */; };
+		A6D112641E4B340E00B38CC3 /* DeviceTotalDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112631E4B340E00B38CC3 /* DeviceTotalDistance.swift */; };
+		A6D112661E4B34BC00B38CC3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112651E4B34BC00B38CC3 /* Event.swift */; };
+		A6D112681E4B35C700B38CC3 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112671E4B35C700B38CC3 /* Geofence.swift */; };
+		A6D1126A1E4B36BB00B38CC3 /* GeofencePermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112691E4B36BB00B38CC3 /* GeofencePermission.swift */; };
+		A6D1126C1E4B370200B38CC3 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1126B1E4B370200B38CC3 /* Group.swift */; };
+		A6D1126E1E4B37D500B38CC3 /* GroupGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1126D1E4B37D500B38CC3 /* GroupGeofence.swift */; };
+		A6D112701E4B383F00B38CC3 /* GroupPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1126F1E4B383F00B38CC3 /* GroupPermission.swift */; };
+		A6D112721E4B388700B38CC3 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112711E4B388700B38CC3 /* Notification.swift */; };
+		A6D112741E4B38F200B38CC3 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112731E4B38F200B38CC3 /* Position.swift */; };
+		A6D112761E4B439800B38CC3 /* ReportSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112751E4B439800B38CC3 /* ReportSummary.swift */; };
+		A6D112781E4B44B500B38CC3 /* ReportTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112771E4B44B500B38CC3 /* ReportTrips.swift */; };
+		A6D1127A1E4B464E00B38CC3 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112791E4B464E00B38CC3 /* Server.swift */; };
+		A6D1127C1E4B486700B38CC3 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1127B1E4B486700B38CC3 /* Statistics.swift */; };
+		A6D1127E1E4B493D00B38CC3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1127D1E4B493D00B38CC3 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +58,26 @@
 		A6D112501E4B2C2000B38CC3 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		A6D112521E4B2C4E00B38CC3 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		A6D112541E4B2C8000B38CC3 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A6D112571E4B2D8700B38CC3 /* AttributeAlias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeAlias.swift; sourceTree = "<group>"; };
+		A6D112591E4B2F2B00B38CC3 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		A6D1125B1E4B30A400B38CC3 /* CommandType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandType.swift; sourceTree = "<group>"; };
+		A6D1125D1E4B311700B38CC3 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		A6D1125F1E4B330F00B38CC3 /* DeviceGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceGeofence.swift; sourceTree = "<group>"; };
+		A6D112611E4B33A500B38CC3 /* DevicePermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicePermission.swift; sourceTree = "<group>"; };
+		A6D112631E4B340E00B38CC3 /* DeviceTotalDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTotalDistance.swift; sourceTree = "<group>"; };
+		A6D112651E4B34BC00B38CC3 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A6D112671E4B35C700B38CC3 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
+		A6D112691E4B36BB00B38CC3 /* GeofencePermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencePermission.swift; sourceTree = "<group>"; };
+		A6D1126B1E4B370200B38CC3 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		A6D1126D1E4B37D500B38CC3 /* GroupGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupGeofence.swift; sourceTree = "<group>"; };
+		A6D1126F1E4B383F00B38CC3 /* GroupPermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPermission.swift; sourceTree = "<group>"; };
+		A6D112711E4B388700B38CC3 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		A6D112731E4B38F200B38CC3 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		A6D112751E4B439800B38CC3 /* ReportSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportSummary.swift; sourceTree = "<group>"; };
+		A6D112771E4B44B500B38CC3 /* ReportTrips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTrips.swift; sourceTree = "<group>"; };
+		A6D112791E4B464E00B38CC3 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		A6D1127B1E4B486700B38CC3 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		A6D1127D1E4B493D00B38CC3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +144,7 @@
 		A6D1124B1E4B2BAF00B38CC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A6D112561E4B2D6A00B38CC3 /* TraccarModel */,
 				A6D1124C1E4B2BBB00B38CC3 /* JSON.swift */,
 				A6D1124E1E4B2C0400B38CC3 /* HTTPStatusCode.swift */,
 				A6D112501E4B2C2000B38CC3 /* APIError.swift */,
@@ -111,6 +152,33 @@
 				A6D112541E4B2C8000B38CC3 /* Endpoint.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A6D112561E4B2D6A00B38CC3 /* TraccarModel */ = {
+			isa = PBXGroup;
+			children = (
+				A6D112571E4B2D8700B38CC3 /* AttributeAlias.swift */,
+				A6D112591E4B2F2B00B38CC3 /* Command.swift */,
+				A6D1125B1E4B30A400B38CC3 /* CommandType.swift */,
+				A6D1125D1E4B311700B38CC3 /* Device.swift */,
+				A6D1125F1E4B330F00B38CC3 /* DeviceGeofence.swift */,
+				A6D112611E4B33A500B38CC3 /* DevicePermission.swift */,
+				A6D112631E4B340E00B38CC3 /* DeviceTotalDistance.swift */,
+				A6D112651E4B34BC00B38CC3 /* Event.swift */,
+				A6D112671E4B35C700B38CC3 /* Geofence.swift */,
+				A6D112691E4B36BB00B38CC3 /* GeofencePermission.swift */,
+				A6D1126B1E4B370200B38CC3 /* Group.swift */,
+				A6D1126D1E4B37D500B38CC3 /* GroupGeofence.swift */,
+				A6D1126F1E4B383F00B38CC3 /* GroupPermission.swift */,
+				A6D112711E4B388700B38CC3 /* Notification.swift */,
+				A6D112731E4B38F200B38CC3 /* Position.swift */,
+				A6D112751E4B439800B38CC3 /* ReportSummary.swift */,
+				A6D112771E4B44B500B38CC3 /* ReportTrips.swift */,
+				A6D112791E4B464E00B38CC3 /* Server.swift */,
+				A6D1127B1E4B486700B38CC3 /* Statistics.swift */,
+				A6D1127D1E4B493D00B38CC3 /* User.swift */,
+			);
+			name = TraccarModel;
 			sourceTree = "<group>";
 		};
 		E7767224FA0B203D5209B9C9 /* Pods */ = {
@@ -247,11 +315,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6D1127A1E4B464E00B38CC3 /* Server.swift in Sources */,
+				A6D112741E4B38F200B38CC3 /* Position.swift in Sources */,
+				A6D1125E1E4B311700B38CC3 /* Device.swift in Sources */,
 				A6D112551E4B2C8000B38CC3 /* Endpoint.swift in Sources */,
 				A6D1124D1E4B2BBB00B38CC3 /* JSON.swift in Sources */,
+				A6D1127E1E4B493D00B38CC3 /* User.swift in Sources */,
+				A6D112601E4B330F00B38CC3 /* DeviceGeofence.swift in Sources */,
+				A6D112661E4B34BC00B38CC3 /* Event.swift in Sources */,
+				A6D112681E4B35C700B38CC3 /* Geofence.swift in Sources */,
 				A6D112391E4B2AC400B38CC3 /* ViewController.swift in Sources */,
+				A6D1125C1E4B30A400B38CC3 /* CommandType.swift in Sources */,
+				A6D112761E4B439800B38CC3 /* ReportSummary.swift in Sources */,
+				A6D112781E4B44B500B38CC3 /* ReportTrips.swift in Sources */,
 				A6D1124F1E4B2C0400B38CC3 /* HTTPStatusCode.swift in Sources */,
+				A6D1126C1E4B370200B38CC3 /* Group.swift in Sources */,
+				A6D1126E1E4B37D500B38CC3 /* GroupGeofence.swift in Sources */,
+				A6D112641E4B340E00B38CC3 /* DeviceTotalDistance.swift in Sources */,
+				A6D1126A1E4B36BB00B38CC3 /* GeofencePermission.swift in Sources */,
+				A6D112621E4B33A500B38CC3 /* DevicePermission.swift in Sources */,
+				A6D1127C1E4B486700B38CC3 /* Statistics.swift in Sources */,
+				A6D112701E4B383F00B38CC3 /* GroupPermission.swift in Sources */,
 				A6D112511E4B2C2000B38CC3 /* APIError.swift in Sources */,
+				A6D1125A1E4B2F2B00B38CC3 /* Command.swift in Sources */,
+				A6D112721E4B388700B38CC3 /* Notification.swift in Sources */,
+				A6D112581E4B2D8700B38CC3 /* AttributeAlias.swift in Sources */,
 				A6D112371E4B2AC400B38CC3 /* AppDelegate.swift in Sources */,
 				A6D112531E4B2C4E00B38CC3 /* APIClient.swift in Sources */,
 			);
