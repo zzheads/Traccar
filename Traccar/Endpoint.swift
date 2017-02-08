@@ -14,3 +14,28 @@ protocol Endpoint {
     var request: URLRequest { get }
     var url: URL { get }
 }
+
+enum TraccarEndpoint: Endpoint {
+    
+    case getAttributesAliases
+    case postAttributesAliases(attributeAlias: AttributeAlias)
+    
+    enum HTTPMethod {
+        case GET
+        case POST
+        case PUT
+        case DELETE
+    }
+    
+    var baseURL: URL {
+        return URL(string: "http://traccar.org/api")!
+    }
+    
+    var path: String {
+        switch self {
+        case .getAttributesAliases:
+            return "/attributes/aliases"
+        }
+    }
+    
+}
