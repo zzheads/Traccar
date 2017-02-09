@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9636B7FE6678C0E557A35861 /* Pods_Traccar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E94896321D2299E91909C98 /* Pods_Traccar.framework */; };
+		A6B13D6D1E4CF09200B9C30C /* PrettyPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B13D6C1E4CF09200B9C30C /* PrettyPrintable.swift */; };
 		A6D112371E4B2AC400B38CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112361E4B2AC400B38CC3 /* AppDelegate.swift */; };
 		A6D112391E4B2AC400B38CC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112381E4B2AC400B38CC3 /* ViewController.swift */; };
 		A6D1123C1E4B2AC400B38CC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D1123A1E4B2AC400B38CC3 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		2E94896321D2299E91909C98 /* Pods_Traccar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traccar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B08B6ABE46904C699931AEE /* Pods-Traccar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traccar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traccar/Pods-Traccar.debug.xcconfig"; sourceTree = "<group>"; };
 		838DB7B0A08D2776B6E3FEF7 /* Pods-Traccar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traccar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traccar/Pods-Traccar.release.xcconfig"; sourceTree = "<group>"; };
+		A6B13D6C1E4CF09200B9C30C /* PrettyPrintable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrettyPrintable.swift; sourceTree = "<group>"; };
 		A6D112331E4B2AC400B38CC3 /* Traccar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traccar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D112361E4B2AC400B38CC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6D112381E4B2AC400B38CC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				A6D112791E4B464E00B38CC3 /* Server.swift */,
 				A6D1127B1E4B486700B38CC3 /* Statistics.swift */,
 				A6D1127D1E4B493D00B38CC3 /* User.swift */,
+				A6B13D6C1E4CF09200B9C30C /* PrettyPrintable.swift */,
 			);
 			name = TraccarModel;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				A6D112621E4B33A500B38CC3 /* DevicePermission.swift in Sources */,
 				A6D1127C1E4B486700B38CC3 /* Statistics.swift in Sources */,
 				A6D112701E4B383F00B38CC3 /* GroupPermission.swift in Sources */,
+				A6B13D6D1E4CF09200B9C30C /* PrettyPrintable.swift in Sources */,
 				A6D112511E4B2C2000B38CC3 /* APIError.swift in Sources */,
 				A6D1125A1E4B2F2B00B38CC3 /* Command.swift in Sources */,
 				A6D112721E4B388700B38CC3 /* Notification.swift in Sources */,

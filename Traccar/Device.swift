@@ -26,7 +26,7 @@ import Alamofire
 //status	string
 //uniqueId	string
 
-class Device: JSONDecodable {
+class Device: JSONDecodable, PrettyPrintable {
     let attributes: JSON
     let category: String
     let contact: String
@@ -82,3 +82,14 @@ class Device: JSONDecodable {
         return ["attributes": attributes, "category": category, "contact": contact, "geofenceIds": geofenceIds, "groupId": groupId, "id": id, "lastUpdate": lastUpdate, "model": model, "name": name, "phone": phone, "positionId": positionId, "status": status, "uniqueId": uniqueId]
     }
 }
+
+//extension Device {
+//    func prettyPrint(with level: Int) -> String {
+//        var tab = ""
+//        for _ in 0..<level {
+//            tab += "\t"
+//        }
+//        return "\(tab)\(type(of: self))<\(CFHash(self))>: {\n\t\(tab)\"attributes\" : \(attributes),\n\t\(tab)\"category\": \(category),\n\t\(tab)\"contact\": \(contact),\n\t\(tab)\"geofenceIds\": \(geofenceIds),\n\t\(tab)\"groupId\": \(groupId),\n\t\(tab)\"id\": \(id),\n\t\(tab)\"lastUpdate\": \(lastUpdate),\n\t\(tab)\"model\": \(model),\n\t\(tab)\"name\": \(name),\n\t\(tab)\"phone\": \(phone),\n\t\(tab)\"positionId\": \(positionId),\n\t\(tab)\"status\": \(status),\n\t\(tab)\"uniqueId\": \(uniqueId)\n\(tab)}"
+//    }
+//}
+

@@ -21,8 +21,15 @@ protocol Endpoint {
 
 enum TraccarEndpoint: Endpoint {
 
+    var USER: String {
+        return "zzheads@gmail.com"
+    }
+    var PASSWORD: String {
+        return "xelaxela"
+    }
+    
     case server
-    case devices(device: Device?)
+    case devices(id: Int?, Device?)
     
     var baseURL: URL {
         return URL(string: "http://demo.traccar.org/api/")!
@@ -32,8 +39,11 @@ enum TraccarEndpoint: Endpoint {
         switch self {
         case .server:
             return "server"
-        case .devices:
-            return "devices"
+        case .devices(let id, _):
+            guard let id = id else {
+                return "devices"
+            }
+            return "devices/\(id)"
         }
     }
     
@@ -44,15 +54,28 @@ enum TraccarEndpoint: Endpoint {
     
     var method: HTTPMethod {
         switch self.parameters {
-        case .none: return .get
-        case .some: return .post
+        case .none:
+            return .get
+        case .some:
+            if let _ = id {
+                return .put
+            } else {
+                return .post
+            }
+        }
+    }
+    
+    var id: Int? {
+        switch self {
+        case .devices(let id, _): return id
+        default: return nil
         }
     }
     
     var parameters: Parameters? {
         switch self {
         case .server: return nil
-        case .devices(let device): return device?.parameters
+        case .devices(_, let device): return device?.parameters
         }
     }
     
@@ -63,8 +86,17 @@ enum TraccarEndpoint: Endpoint {
         }
     }
     
+    var headers: HTTPHeaders? {
+        var headers = ["Accept": "application/json", "Content-Type": "application/json"]
+        if let authorizationHeader = Request.authorizationHeader(user: USER, password: PASSWORD) {
+            headers[authorizationHeader.key] = authorizationHeader.value
+        }
+        
+        return headers
+    }
+    
     var request: DataRequest {
-        let request = Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: nil)
+        let request = Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
         return request
     }
 }

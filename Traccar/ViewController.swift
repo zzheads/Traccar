@@ -9,16 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let apiClient = AlamoAPIClient()
+    let apiClient = APIClient()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let device = Device(attributes: [:], category: "Test", contact: "", geofenceIds: [], groupId: 1, id: 2, lastUpdate: "2016-01-01", model: "Super", name: "Mario", phone: "223322", positionId: 0, status: "active", uniqueId: "SuperMario")
-        apiClient.send(endpoint: TraccarEndpoint.devices(device: device)) { (string: String?) in
-            print("\(string)")
+        apiClient.getArray(endpoint: TraccarEndpoint.devices(id: nil, nil)) { (devices: [Device]?) in
+            guard let devices = devices else {
+                print("Something wrong!")
+                return
+            }
+            print(devices.prettyPrint(with: 0))
         }
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

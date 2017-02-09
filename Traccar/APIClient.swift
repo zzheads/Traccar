@@ -9,77 +9,56 @@
 import Foundation
 import Alamofire
 
-class AlamoAPIClient {
-    
-    func fetch<T: JSONDecodable>(endpoint: Endpoint, completion: @escaping ([T]?) -> Void) {
-        endpoint.request
-            .authenticate(user: "zzheads@gmail.com", password: "xelaxela")
-            .responseJSON { (response) -> Void in
-                
-                guard response.result.isSuccess else {
-                    let statusCode = HTTPStatusCode(rawValue: (response.response?.statusCode)!)
-                    if let error = response.result.error {
-                        print("Error while fetching: \(error) \(APIError.httpResponseStatusCodeError(statusCode!).localizedDescription)")
-                    } else {
-                        print("Unknown error while fetching")
-                    }
-                    completion(nil)
-                    return
-                }
-                
-                guard
-                    let json = response.result.value as? JSON,
-                    let value = T(with: json)
-                    else {
-                        guard
-                            let jsonArray = response.result.value as? JSONArray,
-                            let values = [T](with: jsonArray)
-                            else {
-                                let statusCode = HTTPStatusCode(rawValue: (response.response?.statusCode)!)
-                                if let error = response.result.error {
-                                    print("Error while fetching: \(error) \(APIError.httpResponseStatusCodeError(statusCode!).localizedDescription)")
-                                } else {
-                                    print("Unknown error while fetching")
-                                }
-                                completion(nil)
-                                return
-                        }
-                        completion(values)
-                        return
-                }
-                completion([value])
+class APIClient {
+
+    static func failureHandler<T>(completion: @escaping (T?) -> Void) -> (DataResponse<Any>) -> Void {
+        return { (response: DataResponse<Any>) in
+            let statusCode = HTTPStatusCode(rawValue: (response.response?.statusCode)!)
+            if let error = response.result.error {
+                print("Error while fetching: \(error) \(APIError.httpResponseStatusCodeError(statusCode!).localizedDescription)")
+            } else {
+                print("Unknown error while fetching")
+            }
+            completion(nil)
         }
     }
     
-    func send(endpoint: Endpoint, completion: @escaping (String?) -> Void) {
-        endpoint.request
-            .authenticate(user: "zzheads@gmail.com", password: "xelaxela")
-            .responseString { (response) in
-                guard response.result.isSuccess else {
-                    let statusCode = HTTPStatusCode(rawValue: (response.response?.statusCode)!)
-                    if let error = response.result.error {
-                        print("Error while fetching: \(error) \(APIError.httpResponseStatusCodeError(statusCode!).localizedDescription)")
-                    } else {
-                        print("Unknown error while fetching")
-                    }
-                    completion(nil)
-                    return
-                }
-                
-                guard
-                    let string = response.result.value
-                    else {
-                        let statusCode = HTTPStatusCode(rawValue: (response.response?.statusCode)!)
-                        if let error = response.result.error {
-                            print("Error while fetching: \(error) \(APIError.httpResponseStatusCodeError(statusCode!).localizedDescription)")
-                        } else {
-                            print("Unknown error while fetching")
-                        }
-                        completion(nil)
-                        return
-                }
-                completion(string)
+    func get<T: JSONDecodable>(endpoint: Endpoint, completion: @escaping (T?) -> Void) {
+        endpoint.request.responseJSON { (response) -> Void in
+            guard response.result.isSuccess else {
+                APIClient.failureHandler(completion: completion)(response)
                 return
+            }
+            
+            guard
+                let json = response.result.value as? JSON,
+                let value = T(with: json)
+                else {
+                    APIClient.failureHandler(completion: completion)(response)
+                    return
+            }
+            completion(value)
+            return
         }
     }
+    
+    func getArray<T: JSONDecodable>(endpoint: Endpoint, completion: @escaping ([T]?) -> Void) {
+        endpoint.request.responseJSON { (response) -> Void in
+            guard response.result.isSuccess else {
+                APIClient.failureHandler(completion: completion)(response)
+                return
+            }
+            
+            guard
+                let jsonArray = response.result.value as? JSONArray,
+                let values = [T](with: jsonArray)
+                else {
+                    APIClient.failureHandler(completion: completion)(response)
+                    return
+            }
+            completion(values)
+            return
+        }
+    }
+
 }
