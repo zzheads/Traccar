@@ -7,35 +7,31 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol Endpoint {
     var baseURL: URL { get }
     var path: String { get }
-    var request: URLRequest { get }
     var url: URL { get }
 }
 
 enum TraccarEndpoint: Endpoint {
-    
-    case getAttributesAliases
-    case postAttributesAliases(attributeAlias: AttributeAlias)
-    
-    enum HTTPMethod {
-        case GET
-        case POST
-        case PUT
-        case DELETE
-    }
+
+    case server
     
     var baseURL: URL {
-        return URL(string: "http://traccar.org/api")!
+        return URL(string: "http://demo.traccar.org/api/")!
     }
     
     var path: String {
         switch self {
-        case .getAttributesAliases:
-            return "/attributes/aliases"
+        case .server:
+            return "server"
         }
     }
     
+    var url: URL {
+        let url = URL(string: self.path, relativeTo: self.baseURL)!
+        return url
+    }
 }

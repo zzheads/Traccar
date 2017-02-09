@@ -29,9 +29,9 @@ import Foundation
 //zoom	integer
 
 class Server: JSONDecodable {
-    let attributes: [AttributeAlias]
+    let attributes: JSON
     let bingKey: String
-    let coordinateFormat: String
+    let coordinateFormat: String?
     let distanceUnit: String
     let forceSettings: Bool
     let id: Int
@@ -48,10 +48,8 @@ class Server: JSONDecodable {
     
     required init?(with json: JSON) {
         guard
-            let attributesJson = json["attributes"] as? [JSON],
-            let attributes = [AttributeAlias](with: attributesJson),
+            let attributes = json["attributes"] as? JSON,
             let bingKey = json["bingKey"] as? String,
-            let coordinateFormat = json["coordinateFormat"] as? String,
             let distanceUnit = json["distanceUnit"] as? String,
             let forceSettings = json["forceSettings"] as? Bool,
             let id = json["id"] as? Int,
@@ -68,6 +66,8 @@ class Server: JSONDecodable {
             else {
                 return nil
         }
+        let coordinateFormat = json["coordinateFormat"] as? String
+
         self.attributes = attributes
         self.bingKey = bingKey
         self.coordinateFormat = coordinateFormat
@@ -84,5 +84,16 @@ class Server: JSONDecodable {
         self.twelveHourFormat = twelveHourFormat
         self.version = version
         self.zoom = zoom
+    }
+}
+
+extension Server {
+    func prettyPrint(with level: Int) -> String {
+        var tab = ""
+        for _ in 0..<level {
+            tab += "\t"
+        }
+        let coordinateFormat = self.coordinateFormat ?? "\"\""
+        return "\(tab)\(type(of: self))<\(CFHash(self))>: {\n\t\(tab)\"attributes\" : \(attributes),\n\t\(tab)\"bingKey\": \(bingKey),\n\t\(tab)\"coordinateFormat\": \(coordinateFormat),\n\t\(tab)\"distanceUnit\": \(distanceUnit),\n\t\(tab)\"forceSettings\": \(forceSettings),\n\t\(tab)\"id\": \(id),\n\t\(tab)\"latitude\": \(latitude),\n\t\(tab)\"longitude\": \(longitude),\n\t\(tab)\"map\": \(map),\n\t\(tab)\"mapUrl\": \(mapUrl),\n\t\(tab)\"readonly\": \(readonly),\n\t\(tab)\"registration\": \(registration),\n\t\(tab)\"speedUnit\": \(speedUnit),\n\t\(tab)\"twelveHourFormat\": \(twelveHourFormat),\n\t\(tab)\"version\": \(version),\n\t\(tab)\"zoom\": \(zoom)\n\(tab)}"
     }
 }

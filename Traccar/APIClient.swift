@@ -17,7 +17,11 @@ class AlamoAPIClient {
             .responseJSON { (response) -> Void in
                 
                 guard response.result.isSuccess else {
-                    print("Error while fetching: \(response.result.error)")
+                    if let error = response.result.error {
+                        print("Error while fetching: \(error)")
+                    } else {
+                        print("Unknown error while fetching")
+                    }
                     completion(nil)
                     return
                 }
@@ -30,7 +34,11 @@ class AlamoAPIClient {
                             let jsonArray = response.result.value as? JSONArray,
                             let values = [T](with: jsonArray)
                             else {
-                                print("Error while fetching: \(response.result.error)")
+                                if let error = response.result.error {
+                                    print("Error while fetching: \(error)")
+                                } else {
+                                    print("Unknown error while fetching")
+                                }
                                 completion(nil)
                                 return
                         }

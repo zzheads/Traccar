@@ -9,17 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let apiClient = AlamoAPIClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        print("Trying to fetch: \(TraccarEndpoint.server.url)")
+        apiClient.fetch(endpoint: TraccarEndpoint.server) {(info: [Server]?) in
+            guard
+                let info = info,
+                let server = info.first
+                else {
+                    print("Error")
+                    return
+            }
+            print(server.prettyPrint(with: 0))
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
 }
 
