@@ -30,6 +30,7 @@ enum TraccarEndpoint: Endpoint {
     
     case server
     case devices(id: Int?, Device?)
+    case deleteDevice(id: Int)
     
     var baseURL: URL {
         return URL(string: "http://demo.traccar.org/api/")!
@@ -44,6 +45,8 @@ enum TraccarEndpoint: Endpoint {
                 return "devices"
             }
             return "devices/\(id)"
+        case .deleteDevice(let id):
+            return "devices/\(id)"
         }
     }
     
@@ -55,7 +58,11 @@ enum TraccarEndpoint: Endpoint {
     var method: HTTPMethod {
         switch self.parameters {
         case .none:
-            return .get
+            if let _ = id {
+                return .delete
+            } else {
+                return .get
+            }
         case .some:
             if let _ = id {
                 return .put
@@ -68,14 +75,15 @@ enum TraccarEndpoint: Endpoint {
     var id: Int? {
         switch self {
         case .devices(let id, _): return id
+        case .deleteDevice(let id): return id
         default: return nil
         }
     }
     
     var parameters: Parameters? {
         switch self {
-        case .server: return nil
         case .devices(_, let device): return device?.parameters
+        default: return nil
         }
     }
     

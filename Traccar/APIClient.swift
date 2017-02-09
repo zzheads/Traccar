@@ -61,4 +61,9 @@ class APIClient {
         }
     }
 
+    func delete(endpoint: Endpoint, completion: @escaping (DataResponse<Any>) -> Void) {
+        endpoint.request.responseJSON { (response) -> Void in
+            completion(response)
+        }
+    }
 }

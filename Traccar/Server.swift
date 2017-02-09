@@ -28,7 +28,7 @@ import Foundation
 //version	string
 //zoom	integer
 
-class Server: JSONDecodable {
+class Server: JSONDecodable, PrettyPrintable {
     let attributes: JSON
     let bingKey: String
     let coordinateFormat: String?
@@ -84,16 +84,5 @@ class Server: JSONDecodable {
         self.twelveHourFormat = twelveHourFormat
         self.version = version
         self.zoom = zoom
-    }
-}
-
-extension Server {
-    func prettyPrint(with level: Int) -> String {
-        var tab = ""
-        for _ in 0..<level {
-            tab += "\t"
-        }
-        let coordinateFormat = self.coordinateFormat ?? "\"\""
-        return "\(tab)\(type(of: self))<\(CFHash(self))>: {\n\t\(tab)\"attributes\" : \(attributes),\n\t\(tab)\"bingKey\": \(bingKey),\n\t\(tab)\"coordinateFormat\": \(coordinateFormat),\n\t\(tab)\"distanceUnit\": \(distanceUnit),\n\t\(tab)\"forceSettings\": \(forceSettings),\n\t\(tab)\"id\": \(id),\n\t\(tab)\"latitude\": \(latitude),\n\t\(tab)\"longitude\": \(longitude),\n\t\(tab)\"map\": \(map),\n\t\(tab)\"mapUrl\": \(mapUrl),\n\t\(tab)\"readonly\": \(readonly),\n\t\(tab)\"registration\": \(registration),\n\t\(tab)\"speedUnit\": \(speedUnit),\n\t\(tab)\"twelveHourFormat\": \(twelveHourFormat),\n\t\(tab)\"version\": \(version),\n\t\(tab)\"zoom\": \(zoom)\n\(tab)}"
     }
 }

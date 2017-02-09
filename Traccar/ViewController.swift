@@ -13,15 +13,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        apiClient.getArray(endpoint: TraccarEndpoint.devices(id: nil, nil)) { (devices: [Device]?) in
-            guard let devices = devices else {
-                print("Something wrong!")
-                return
-            }
-            print(devices.prettyPrint(with: 0))
-        }
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

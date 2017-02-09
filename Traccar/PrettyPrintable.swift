@@ -31,7 +31,13 @@ extension PrettyPrintable {
         var pretty = "\(tab)\(type(of: self))<\(CFHash(self))>: {"
         var count = 0
         for (key, value) in self.json.json {
-            pretty += "\n\t\(tab)\(key): \(value)"
+            var stringRep = ""
+            if (value is Array<Any> || value is Dictionary<String, Any>) {
+                stringRep = "\(value.count!) items"
+            } else {
+                stringRep = String(describing: value)
+            }
+            pretty += "\n\t\(tab)\(key): \(stringRep)"
             count += 1
             if (count < self.json.count) {
                 pretty += ","
@@ -45,7 +51,7 @@ extension PrettyPrintable {
 extension Array where Element: PrettyPrintable {
     func prettyPrint(with level: Int) -> String {
         let tab = String(repeating: "\t", count: level)
-        var pretty = "\(tab)\(type(of: self))<\(self.count)>: {"
+        var pretty = "\(tab)\(type(of: self))<\(self.count) items>: {"
         for i in 0..<self.count {
             let item = self[i]
             pretty += "\n\t\(tab)\(i+1). \(item.prettyPrint(with: level + 1))"
