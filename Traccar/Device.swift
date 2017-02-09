@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 //Device
 //
@@ -26,7 +27,7 @@ import Foundation
 //uniqueId	string
 
 class Device: JSONDecodable {
-    let attributes: [AttributeAlias]
+    let attributes: JSON
     let category: String
     let contact: String
     let geofenceIds: [Int]
@@ -40,10 +41,25 @@ class Device: JSONDecodable {
     let status: String
     let uniqueId: String
     
-    required init?(with json: JSON) {
+    init(attributes: JSON, category: String, contact: String, geofenceIds: [Int], groupId: Int, id: Int, lastUpdate: String, model: String, name: String, phone: String, positionId: Int, status: String, uniqueId: String) {
+        self.attributes = attributes
+        self.category = category
+        self.contact = contact
+        self.geofenceIds = geofenceIds
+        self.groupId = groupId
+        self.id = id
+        self.lastUpdate = lastUpdate
+        self.model = model
+        self.name = name
+        self.phone = phone
+        self.positionId = positionId
+        self.status = status
+        self.uniqueId = uniqueId
+    }
+    
+    required convenience init?(with json: JSON) {
         guard
-            let attributesJson = json["attributes"] as? [JSON],
-            let attributes = [AttributeAlias](with: attributesJson),
+            let attributes = json["attributes"] as? JSON,
             let category = json["category"] as? String,
             let contact = json["contact"] as? String,
             let geofenceIds = json["geofenceIds"] as? [Int],
@@ -59,18 +75,10 @@ class Device: JSONDecodable {
             else {
                 return nil
         }
-        self.attributes = attributes
-        self.category = category
-        self.contact = contact
-        self.geofenceIds = geofenceIds
-        self.groupId = groupId
-        self.id = id
-        self.lastUpdate = lastUpdate
-        self.model = model
-        self.name = name
-        self.phone = phone
-        self.positionId = positionId
-        self.status = status
-        self.uniqueId = uniqueId
+        self.init(attributes: attributes, category: category, contact: contact, geofenceIds: geofenceIds, groupId: groupId, id: id, lastUpdate: lastUpdate, model: model, name: name, phone: phone, positionId: positionId, status: status, uniqueId: uniqueId)
+    }
+    
+    var parameters: Parameters {
+        return ["attributes": attributes, "category": category, "contact": contact, "geofenceIds": geofenceIds, "groupId": groupId, "id": id, "lastUpdate": lastUpdate, "model": model, "name": name, "phone": phone, "positionId": positionId, "status": status, "uniqueId": uniqueId]
     }
 }

@@ -13,16 +13,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Trying to fetch: \(TraccarEndpoint.server.url)")
-        apiClient.fetch(endpoint: TraccarEndpoint.server) {(info: [Server]?) in
-            guard
-                let info = info,
-                let server = info.first
-                else {
-                    print("Error")
-                    return
-            }
-            print(server.prettyPrint(with: 0))
+        let device = Device(attributes: [:], category: "Test", contact: "", geofenceIds: [], groupId: 1, id: 2, lastUpdate: "2016-01-01", model: "Super", name: "Mario", phone: "223322", positionId: 0, status: "active", uniqueId: "SuperMario")
+        apiClient.send(endpoint: TraccarEndpoint.devices(device: device)) { (string: String?) in
+            print("\(string)")
         }
     }
 

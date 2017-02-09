@@ -12,13 +12,14 @@ import Alamofire
 class AlamoAPIClient {
     
     func fetch<T: JSONDecodable>(endpoint: Endpoint, completion: @escaping ([T]?) -> Void) {
-        Alamofire.request(endpoint.url, method: .get, parameters: nil)
-            .validate()
+        endpoint.request
+            .authenticate(user: "zzheads@gmail.com", password: "xelaxela")
             .responseJSON { (response) -> Void in
                 
                 guard response.result.isSuccess else {
+                    let statusCode = HTTPStatusCode(rawValue: (response.response?.statusCode)!)
                     if let error = response.result.error {
-                        print("Error while fetching: \(error)")
+                        print("Error while fetching: \(error) \(APIError.httpResponseStatusCodeError(statusCode!).localizedDescription)")
                     } else {
                         print("Unknown error while fetching")
                     }
@@ -34,8 +35,9 @@ class AlamoAPIClient {
                             let jsonArray = response.result.value as? JSONArray,
                             let values = [T](with: jsonArray)
                             else {
+                                let statusCode = HTTPStatusCode(rawValue: (response.response?.statusCode)!)
                                 if let error = response.result.error {
-                                    print("Error while fetching: \(error)")
+                                    print("Error while fetching: \(error) \(APIError.httpResponseStatusCodeError(statusCode!).localizedDescription)")
                                 } else {
                                     print("Unknown error while fetching")
                                 }
@@ -46,6 +48,38 @@ class AlamoAPIClient {
                         return
                 }
                 completion([value])
+        }
+    }
+    
+    func send(endpoint: Endpoint, completion: @escaping (String?) -> Void) {
+        endpoint.request
+            .authenticate(user: "zzheads@gmail.com", password: "xelaxela")
+            .responseString { (response) in
+                guard response.result.isSuccess else {
+                    let statusCode = HTTPStatusCode(rawValue: (response.response?.statusCode)!)
+                    if let error = response.result.error {
+                        print("Error while fetching: \(error) \(APIError.httpResponseStatusCodeError(statusCode!).localizedDescription)")
+                    } else {
+                        print("Unknown error while fetching")
+                    }
+                    completion(nil)
+                    return
+                }
+                
+                guard
+                    let string = response.result.value
+                    else {
+                        let statusCode = HTTPStatusCode(rawValue: (response.response?.statusCode)!)
+                        if let error = response.result.error {
+                            print("Error while fetching: \(error) \(APIError.httpResponseStatusCodeError(statusCode!).localizedDescription)")
+                        } else {
+                            print("Unknown error while fetching")
+                        }
+                        completion(nil)
+                        return
+                }
+                completion(string)
+                return
         }
     }
 }
