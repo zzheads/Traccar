@@ -47,6 +47,7 @@
 		6B08B6ABE46904C699931AEE /* Pods-Traccar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traccar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traccar/Pods-Traccar.debug.xcconfig"; sourceTree = "<group>"; };
 		838DB7B0A08D2776B6E3FEF7 /* Pods-Traccar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traccar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traccar/Pods-Traccar.release.xcconfig"; sourceTree = "<group>"; };
 		A6B13D6C1E4CF09200B9C30C /* PrettyPrintable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrettyPrintable.swift; sourceTree = "<group>"; };
+		A6B13D6E1E4D0D9100B9C30C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A6D112331E4B2AC400B38CC3 /* Traccar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traccar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D112361E4B2AC400B38CC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6D112381E4B2AC400B38CC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		A6D1122A1E4B2AC400B38CC3 = {
 			isa = PBXGroup;
 			children = (
+				A6B13D6E1E4D0D9100B9C30C /* README.md */,
 				A6D112491E4B2B3200B38CC3 /* Podfile */,
 				A6D112351E4B2AC400B38CC3 /* Traccar */,
 				A6D112341E4B2AC400B38CC3 /* Products */,
@@ -449,7 +451,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -493,7 +495,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzheads.Traccar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
