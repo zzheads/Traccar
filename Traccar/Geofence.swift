@@ -17,9 +17,9 @@ import Foundation
 //id	integer
 //name	string
 
-class Geofence: JSONDecodable {
+class Geofence: JSONDecodable, PrettyPrintable {
     let area: String
-    let attributes: [AttributeAlias]
+    let attributes: JSON
     let description: String
     let id: Int
     let name: String
@@ -27,8 +27,7 @@ class Geofence: JSONDecodable {
     required init?(with json: JSON) {
         guard
             let area = json["area"] as? String,
-            let attributesJson = json["attributes"] as? [JSON],
-            let attributes = [AttributeAlias](with: attributesJson),
+            let attributes = json["attributes"] as? JSON,
             let description = json["description"] as? String,
             let id = json["id"] as? Int,
             let name = json["name"] as? String

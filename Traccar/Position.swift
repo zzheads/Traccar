@@ -27,10 +27,10 @@ import Foundation
 //speed	number	In knots
 //valid	boolean
 
-class Position: JSONDecodable {
+class Position: JSONDecodable, PrettyPrintable {
     let address: String
     let altitude: Double
-    let attributes: [AttributeAlias]
+    let attributes: JSON
     let course: Double
     let deviceId: Int
     let deviceTime: String
@@ -48,8 +48,7 @@ class Position: JSONDecodable {
         guard
             let address = json["address"] as? String,
             let altitude = json["altitude"] as? Double,
-            let attributesJson = json["attributes"] as? [JSON],
-            let attributes = [AttributeAlias](with: attributesJson),
+            let attributes = json["attributes"] as? JSON,
             let course = json["course"] as? Double,
             let deviceId = json["deviceId"] as? Int,
             let deviceTime = json["deviceTime"] as? String,

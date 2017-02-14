@@ -26,17 +26,12 @@ import Foundation
 //startLon	number
 //startTime	string (date-time)
 
-class ReportTrips: JSONDecodable {
-    let averageSpeed: Double
-    let deviceId: Int
-    let deviceName: String
-    let distance: Double
+class TripReport: BaseReport {
     let duration: Int
     let endAddress: String
     let endLat: Double
     let endLon: Double
     let endTime: String
-    let maxSpeed: Double
     let startAddress: String
     let startLat: Double
     let startLon: Double
@@ -44,16 +39,11 @@ class ReportTrips: JSONDecodable {
     
     required init?(with json: JSON) {
         guard
-            let averageSpeed = json["averageSpeed"] as? Double,
-            let deviceId = json["deviceId"] as? Int,
-            let deviceName = json["deviceName"] as? String,
-            let distance = json["distance"] as? Double,
             let duration = json["duration"] as? Int,
             let endAddress = json["endAddress"] as? String,
             let endLat = json["endLat"] as? Double,
             let endLon = json["endLon"] as? Double,
             let endTime = json["endTime"] as? String,
-            let maxSpeed = json["maxSpeed"] as? Double,
             let startAddress = json["startAddress"] as? String,
             let startLat = json["startLat"] as? Double,
             let startLon = json["startLon"] as? Double,
@@ -61,19 +51,15 @@ class ReportTrips: JSONDecodable {
             else {
                 return nil
         }
-        self.averageSpeed = averageSpeed
-        self.deviceId = deviceId
-        self.deviceName = deviceName
-        self.distance = distance
         self.duration = duration
         self.endAddress = endAddress
         self.endLat = endLat
         self.endLon = endLon
         self.endTime = endTime
-        self.maxSpeed = maxSpeed
         self.startAddress = startAddress
         self.startLat = startLat
         self.startLon = startLon
         self.startTime = startTime
+        super.init(with: json)
     }
 }

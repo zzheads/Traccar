@@ -16,15 +16,14 @@ import Foundation
 //type	string
 //userId	integer
 
-class Notification: JSONDecodable {
-    let attributes: [AttributeAlias]
+class Notification: JSONDecodable, PrettyPrintable {
+    let attributes: JSON
     let id: Int
     let userId: Int
     
     required init?(with json: JSON) {
         guard
-            let attributesJson = json["attributes"] as? [JSON],
-            let attributes = [AttributeAlias](with: attributesJson),
+            let attributes = json["attributes"] as? JSON,
             let id = json["id"] as? Int,
             let userId = json["userId"] as? Int
             else {

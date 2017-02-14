@@ -1,48 +1,40 @@
 //
-//  ReportSummary.swift
+//  BaseReport.swift
 //  Traccar
 //
-//  Created by Alexey Papin on 08.02.17.
+//  Created by Alexey Papin on 14.02.17.
 //  Copyright © 2017 zzheads. All rights reserved.
 //
 
 import Foundation
 
-//ReportSummary
-//
-//Property	Type	Description
-//averageSpeed	number	in knots
-//deviceId	integer
-//deviceName	string
-//distance	number	in meters
-//engineHours	integer
-//maxSpeed	number	in knots
+//private long deviceId;
+//private String deviceName;
+//private double distance; // meters
+//private double averageSpeed; // knots
+//private double maxSpeed; // knots
 
-class ReportSummary: JSONDecodable {
-    let averageSpeed: Double
+class BaseReport: JSONDecodable, PrettyPrintable {
     let deviceId: Int
     let deviceName: String
     let distance: Double
-    let engineHours: Int
+    let averageSpeed: Double
     let maxSpeed: Double
     
     required init?(with json: JSON) {
         guard
-            let averageSpeed = json["averageSpeed"] as? Double,
             let deviceId = json["deviceId"] as? Int,
             let deviceName = json["deviceName"] as? String,
             let distance = json["distance"] as? Double,
-            let engineHours = json["engineHours"] as? Int,
+            let averageSpeed = json["averageSpeed"] as? Double,
             let maxSpeed = json["maxSpeed"] as? Double
             else {
                 return nil
         }
-        self.averageSpeed = averageSpeed
         self.deviceId = deviceId
         self.deviceName = deviceName
+        self.averageSpeed = averageSpeed
         self.distance = distance
-        self.engineHours = engineHours
         self.maxSpeed = maxSpeed
     }
-    
 }

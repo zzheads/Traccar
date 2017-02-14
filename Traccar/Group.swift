@@ -16,16 +16,15 @@ import Foundation
 //id	integer
 //name	string
 
-class Group: JSONDecodable {
-    let attributes: [AttributeAlias]
+class Group: JSONDecodable, PrettyPrintable {
+    let attributes: JSON
     let groupId: Int
     let id: Int
     let name: String
     
     required init?(with json: JSON) {
         guard
-            let attributesJson = json["attributes"] as? [JSON],
-            let attributes = [AttributeAlias](with: attributesJson),
+            let attributes = json["attributes"] as? JSON,
             let groupId = json["groupId"] as? Int,
             let id = json["id"] as? Int,
             let name = json["name"] as? String

@@ -22,31 +22,59 @@ protocol Endpoint {
 enum TraccarEndpoint: Endpoint {
 
     var USER: String {
-        return "zzheads@gmail.com"
+        return "stalien@yandex.ru"
     }
     var PASSWORD: String {
-        return "xelaxela"
+        return "sw0rdf1sh"
     }
     
     case server
     case devices(id: Int?, Device?)
     case deleteDevice(id: Int)
+    case commandTypes(id: Int)
+    case events(id: Int)
+    case geofences
+    case groups
+    case positions
+    case notifications
+    case users
+    case session(email: String?, password: String?)
+    case summaryReport(deviceIds: [Int], from: String, to: String)
     
     var baseURL: URL {
-        return URL(string: "http://demo.traccar.org/api/")!
+        return URL(string: "http://demo2.traccar.org/api/")!
     }
     
     var path: String {
+        var path: String
         switch self {
-        case .server:
-            return "server"
-        case .devices(let id, _):
-            guard let id = id else {
-                return "devices"
-            }
-            return "devices/\(id)"
-        case .deleteDevice(let id):
-            return "devices/\(id)"
+        case .server: path = "server"
+        case .devices, .deleteDevice: path = "devices"
+        case .commandTypes: path = "commandtypes"
+            
+        case .events: path = "events"
+        case .geofences: path = "geofences"
+        case .groups: path = "groups"
+        case .positions: path = "positions"
+        case .notifications: path = "users/notifications"
+        case .users: path = "users"
+        case .session: path = "session"
+        case .summaryReport: path = "reports/summary"
+        }
+        if let id = self.id {
+            path += "/\(id)"
+        }
+        if let queryString = self.queryString {
+            path += "?query=\(queryString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed))"
+        }
+        return path
+    }
+    
+    var queryString: String? {
+        switch self {
+        case .commandTypes(let id): return "deviceId=\(id)"
+        case .summaryReport(let deviceIds, let from, let to): return "deviceId=\(deviceIds)&from=\(from)&to=\(to)"
+        default: return nil
         }
     }
     
@@ -76,6 +104,7 @@ enum TraccarEndpoint: Endpoint {
         switch self {
         case .devices(let id, _): return id
         case .deleteDevice(let id): return id
+        case .events(let id): return id
         default: return nil
         }
     }
@@ -83,19 +112,39 @@ enum TraccarEndpoint: Endpoint {
     var parameters: Parameters? {
         switch self {
         case .devices(_, let device): return device?.parameters
+        case .session(let email, let password):
+            guard let email = email, let password = password else { return nil }
+            return ["email": email, "password": password]
         default: return nil
         }
     }
     
     var encoding: ParameterEncoding {
-        switch self.parameters {
-        case .none: return URLEncoding.default
-        case .some: return JSONEncoding.default
+        if let _ = self.queryString { return URLEncoding.queryString }
+        if let _ = self.httpBody { return URLEncoding.httpBody }
+        return URLEncoding.default
+    }
+
+    var httpBody: Data? {
+        switch self {
+        case .session(let email, let password):
+            guard let email = email, let password = password else {
+                return nil
+            }
+            let post = "email=\(email)&password=\(password)"
+            return post.data(using: String.Encoding.ascii, allowLossyConversion: true)
+        default: return nil
         }
     }
     
     var headers: HTTPHeaders? {
-        var headers = ["Accept": "application/json", "Content-Type": "application/json"]
+        var headers = ["Accept": "application/json"]
+        if let httpBody = httpBody {
+            headers["Content-Type"] = "application/x-www-form-urlencoded"
+            headers["Content-Length"] = "\(httpBody.count)"
+        } else {
+            headers["Content-Type"] = "application/json"
+        }
         if let authorizationHeader = Request.authorizationHeader(user: USER, password: PASSWORD) {
             headers[authorizationHeader.key] = authorizationHeader.value
         }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9636B7FE6678C0E557A35861 /* Pods_Traccar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E94896321D2299E91909C98 /* Pods_Traccar.framework */; };
+		A63AAC9D1E5345250068CDEE /* BaseReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63AAC9C1E5345250068CDEE /* BaseReport.swift */; };
 		A6B13D6D1E4CF09200B9C30C /* PrettyPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B13D6C1E4CF09200B9C30C /* PrettyPrintable.swift */; };
 		A6D112371E4B2AC400B38CC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112361E4B2AC400B38CC3 /* AppDelegate.swift */; };
 		A6D112391E4B2AC400B38CC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112381E4B2AC400B38CC3 /* ViewController.swift */; };
@@ -35,8 +36,8 @@
 		A6D112701E4B383F00B38CC3 /* GroupPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1126F1E4B383F00B38CC3 /* GroupPermission.swift */; };
 		A6D112721E4B388700B38CC3 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112711E4B388700B38CC3 /* Notification.swift */; };
 		A6D112741E4B38F200B38CC3 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112731E4B38F200B38CC3 /* Position.swift */; };
-		A6D112761E4B439800B38CC3 /* ReportSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112751E4B439800B38CC3 /* ReportSummary.swift */; };
-		A6D112781E4B44B500B38CC3 /* ReportTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112771E4B44B500B38CC3 /* ReportTrips.swift */; };
+		A6D112761E4B439800B38CC3 /* SummaryReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112751E4B439800B38CC3 /* SummaryReport.swift */; };
+		A6D112781E4B44B500B38CC3 /* TripReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112771E4B44B500B38CC3 /* TripReport.swift */; };
 		A6D1127A1E4B464E00B38CC3 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D112791E4B464E00B38CC3 /* Server.swift */; };
 		A6D1127C1E4B486700B38CC3 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1127B1E4B486700B38CC3 /* Statistics.swift */; };
 		A6D1127E1E4B493D00B38CC3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1127D1E4B493D00B38CC3 /* User.swift */; };
@@ -46,6 +47,7 @@
 		2E94896321D2299E91909C98 /* Pods_Traccar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traccar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B08B6ABE46904C699931AEE /* Pods-Traccar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traccar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traccar/Pods-Traccar.debug.xcconfig"; sourceTree = "<group>"; };
 		838DB7B0A08D2776B6E3FEF7 /* Pods-Traccar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traccar.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traccar/Pods-Traccar.release.xcconfig"; sourceTree = "<group>"; };
+		A63AAC9C1E5345250068CDEE /* BaseReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseReport.swift; sourceTree = "<group>"; };
 		A6B13D6C1E4CF09200B9C30C /* PrettyPrintable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrettyPrintable.swift; sourceTree = "<group>"; };
 		A6B13D6E1E4D0D9100B9C30C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A6D112331E4B2AC400B38CC3 /* Traccar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traccar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +78,8 @@
 		A6D1126F1E4B383F00B38CC3 /* GroupPermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupPermission.swift; sourceTree = "<group>"; };
 		A6D112711E4B388700B38CC3 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		A6D112731E4B38F200B38CC3 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
-		A6D112751E4B439800B38CC3 /* ReportSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportSummary.swift; sourceTree = "<group>"; };
-		A6D112771E4B44B500B38CC3 /* ReportTrips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTrips.swift; sourceTree = "<group>"; };
+		A6D112751E4B439800B38CC3 /* SummaryReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryReport.swift; sourceTree = "<group>"; };
+		A6D112771E4B44B500B38CC3 /* TripReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripReport.swift; sourceTree = "<group>"; };
 		A6D112791E4B464E00B38CC3 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		A6D1127B1E4B486700B38CC3 /* Statistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		A6D1127D1E4B493D00B38CC3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -101,6 +103,16 @@
 				2E94896321D2299E91909C98 /* Pods_Traccar.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A63AAC9B1E5345120068CDEE /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				A6D112751E4B439800B38CC3 /* SummaryReport.swift */,
+				A6D112771E4B44B500B38CC3 /* TripReport.swift */,
+				A63AAC9C1E5345250068CDEE /* BaseReport.swift */,
+			);
+			name = Reports;
 			sourceTree = "<group>";
 		};
 		A6D1122A1E4B2AC400B38CC3 = {
@@ -161,6 +173,7 @@
 		A6D112561E4B2D6A00B38CC3 /* TraccarModel */ = {
 			isa = PBXGroup;
 			children = (
+				A63AAC9B1E5345120068CDEE /* Reports */,
 				A6D112571E4B2D8700B38CC3 /* AttributeAlias.swift */,
 				A6D112591E4B2F2B00B38CC3 /* Command.swift */,
 				A6D1125B1E4B30A400B38CC3 /* CommandType.swift */,
@@ -176,8 +189,6 @@
 				A6D1126F1E4B383F00B38CC3 /* GroupPermission.swift */,
 				A6D112711E4B388700B38CC3 /* Notification.swift */,
 				A6D112731E4B38F200B38CC3 /* Position.swift */,
-				A6D112751E4B439800B38CC3 /* ReportSummary.swift */,
-				A6D112771E4B44B500B38CC3 /* ReportTrips.swift */,
 				A6D112791E4B464E00B38CC3 /* Server.swift */,
 				A6D1127B1E4B486700B38CC3 /* Statistics.swift */,
 				A6D1127D1E4B493D00B38CC3 /* User.swift */,
@@ -325,14 +336,15 @@
 				A6D1125E1E4B311700B38CC3 /* Device.swift in Sources */,
 				A6D112551E4B2C8000B38CC3 /* Endpoint.swift in Sources */,
 				A6D1124D1E4B2BBB00B38CC3 /* JSON.swift in Sources */,
+				A63AAC9D1E5345250068CDEE /* BaseReport.swift in Sources */,
 				A6D1127E1E4B493D00B38CC3 /* User.swift in Sources */,
 				A6D112601E4B330F00B38CC3 /* DeviceGeofence.swift in Sources */,
 				A6D112661E4B34BC00B38CC3 /* Event.swift in Sources */,
 				A6D112681E4B35C700B38CC3 /* Geofence.swift in Sources */,
 				A6D112391E4B2AC400B38CC3 /* ViewController.swift in Sources */,
 				A6D1125C1E4B30A400B38CC3 /* CommandType.swift in Sources */,
-				A6D112761E4B439800B38CC3 /* ReportSummary.swift in Sources */,
-				A6D112781E4B44B500B38CC3 /* ReportTrips.swift in Sources */,
+				A6D112761E4B439800B38CC3 /* SummaryReport.swift in Sources */,
+				A6D112781E4B44B500B38CC3 /* TripReport.swift in Sources */,
 				A6D1124F1E4B2C0400B38CC3 /* HTTPStatusCode.swift in Sources */,
 				A6D1126C1E4B370200B38CC3 /* Group.swift in Sources */,
 				A6D1126E1E4B37D500B38CC3 /* GroupGeofence.swift in Sources */,

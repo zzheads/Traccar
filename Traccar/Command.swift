@@ -16,14 +16,13 @@ import Foundation
 //type	string
 
 class Command: JSONDecodable {
-    let attributes: [AttributeAlias]
+    let attributes: JSON
     let deviceId: Int
     let type: String
     
     required init?(with json: JSON) {
         guard
-            let attributesJson = json["attributes"] as? [JSON],
-            let attributes = [AttributeAlias](with: attributesJson),
+            let attributes = json["attributes"] as? JSON,
             let deviceId = json["deviceId"] as? Int,
             let type = json["type"] as? String
             else {
